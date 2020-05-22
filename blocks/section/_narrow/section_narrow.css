@@ -1,0 +1,11 @@
+.section_narrow {
+  margin-top: 66px;
+  margin-bottom: 60px;
+  margin-left: 199px;
+}
+
+@media screen and (max-width: 320px) {
+  .section_narrow {
+    margin: 48px auto 36px;
+  }
+}
