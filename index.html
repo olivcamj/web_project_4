@@ -12,7 +12,38 @@
       <header class="header section">
         <img src="./images/logo.png" alt="Around the U.S." class="header__logo">
       </header>
+
       <main class="content">
+
+        <section class="profile">
+          <div class="profile__container">
+            <div class="profile__avatar-container">
+              <img src="./images/jacques.jpg" alt="A profile picture of Jacques Cousteau" class="profile__avatar">
+            </div>
+            <div class="profile__info">
+              <h2 class="profile__heading">Jacques Cousteau</h2>
+              <img src="./images/editBtn.png" alt="Pencil icon"> <!--WRONG IMG-->
+              <p class="profile__occupation">Explorer</p>
+            </div>
+            <button type="button"><img src="./images/addBtn.png" alt="A white addition sign" class="profile__btn"></button>
+          </div>
+        </section>
+
+        <section class="form">
+          <form class="form__admin">
+            <div class="form__main-container">
+              <h3 class="form__heading"> Edit Profile</h3>
+              <fieldset class="form__input-container form__input-container_ctlr_texts">
+                <input type="text" value="Jacques Cousteau" class="input__item input__item_el_name" required> <!--add placeholders-->
+                <input type="text" value="Explorer" class="input__item input__item_el_occupation" required>   
+              </fieldset>
+              <fieldset class="form__handlers">
+                <button type="submit" class="form__btn" value="Save">Save</button>
+              </fieldset>
+            </div>
+          </form>
+        </section>
+
         <section class="elements section">
           <ul class="elements__container">
             <li class="element">
