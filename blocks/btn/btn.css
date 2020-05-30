@@ -1,0 +1,13 @@
+@import url('./__add/btn__add.css');
+@import url('./__edit/btn__edit.css');
+
+.btn {
+    border: 1px solid #fff;
+    background-color: #000;
+    border-radius: 2px;
+    /* just need to reassign the defualt positioning of align-self: flex-start; */ 
+}
+
+.btn:hover {
+    cursor: pointer;
+}

@@ -1,8 +1,19 @@
 @import url('./__container/profile__container.css');
 @import url('./__avatar-container/profile__avatar-container.css');
 @import url('./__avatar/profile__avatar.css');
+@import url('./__info/profile__info.css');
+@import url('./__heading/profile__heading.css');
+@import url('./__orientation/profile__orientation.css');
+@import url('./__editIcon/profile__editIcon.css');
 
 .profile {
   max-width: 882px;
-  min-height: 120px;
+  height: 120px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile {
+    max-width: 282px;
+    height: 286px;
+  }
 }

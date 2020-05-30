@@ -1,4 +1,11 @@
 .profile__container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 168px 428px 2fr;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__container {
+    display: block;
+  }
 }

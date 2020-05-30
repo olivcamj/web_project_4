@@ -1,0 +1,11 @@
+@media screen and (max-width: 320px) {
+  .profile__editIcon {
+    width: 7.5px;
+    height: 7.5px;
+    display: block;
+  }
+}
+
+
+        /*Used <img> for accessibility purposes (it does not have any text indicating functionality);
+         In order to resize the edit img should I use a background-image property instead?*/
