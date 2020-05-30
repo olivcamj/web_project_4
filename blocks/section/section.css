@@ -2,6 +2,8 @@
 
 .section {
   max-width: calc(100% - 199px*2);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media screen and (max-width: 320px) {
