@@ -1,6 +1,12 @@
 .element__heart-icon {
-  width: 20px;
+  width: 20.76px;
   height: 18.13px;
+  padding: 0;
+  margin-top: 6px;
   align-self: center;
-  background-image: url('../../../images/heartIcon.svg');
+  background-image: url('../../../images/heartIcon.svg'); 
+  background-position: center;
+  background-size: 100% 100%;
+  border: none;
+  background-color: #fff;
 }
