@@ -1,16 +1,21 @@
 # Project 4: Around The U.S.
 
-### Overview
+## Project Link
 
-* Figma
-* Images
+Project deployed on [GitHub Pages](http://olivcamj.github.io/web_project_4/.)
 
-**Figma**
+## Description
 
-* [Link to the project in Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+A web page that displays a user's profile and photos they have uploaded from around the US.🌎 This project uses Javascript to add interactivity for the user, by reacting to events and modifying content.
+This project demonstrates the theory and practice from Practicum's course: Basic JavaScript and Working with the Browser.
 
-**Images**
+## Technologies and Techniques :trophy:
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+* Working with [Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+* creating functions in Javascript
+* @media rule to create responsive layouts
+* BEM methodology & nested file structure
+* Access and modify DOM elements
+* React to events triggered by user
+* Modal
+* Grid layout 
