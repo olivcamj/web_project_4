@@ -10,10 +10,11 @@
   background-color: #000;
   border: 1px solid #fff;
   border-radius: 2px;
+  outline: none;
 }
 
 .profile__editBtn:hover {
-  opacity: .6px;
+  opacity: .6;
   cursor: pointer;
 } 
 
