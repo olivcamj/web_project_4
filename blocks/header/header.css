@@ -8,6 +8,12 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 708px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .header {
     width: 100%;

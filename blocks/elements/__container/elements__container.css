@@ -10,9 +10,24 @@
   gap: 20px 18px;
 }
 
+@media screen and (max-width: 768px) {
+  .elements__container {
+    grid-template-columns: repeat(3, 226px);
+    grid-template-rows: repeat(2, 305px);
+    gap: 17px 14px;
+  }
+}
+  @media screen and (max-width: 425px) {
+    .elements__container {
+      grid-template-columns: repeat(1, 375px);
+      grid-template-rows: repeat(6, 375px);
+    }
+  }
+
 @media screen and (max-width: 320px) {
   .elements__container {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-top: 36px;
     margin-bottom: 48px;
   }

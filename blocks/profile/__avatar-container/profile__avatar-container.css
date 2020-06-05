@@ -5,3 +5,15 @@
   justify-content: center;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 768px) {
+  .profile__avatar-container {
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile__avatar-container {
+    justify-content: center;
+  }
+}

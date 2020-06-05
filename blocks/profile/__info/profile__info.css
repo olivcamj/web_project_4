@@ -6,6 +6,13 @@
   height: 77px;
 }
 
+@media screen and (max-width: 768px) {
+  .profile__info {
+    grid-template-columns: 320px 30px;
+    align-items: baseline;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .profile__info {
     /*max-width: 280px; */

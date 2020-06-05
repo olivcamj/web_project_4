@@ -12,6 +12,17 @@
   height: 120px;
 }
 
+@media screen and (max-width: 768px) {
+  .profile {
+    max-width: 704px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .profile {
+    height: 350px 
+  } 
+}
+
 @media screen and (max-width: 320px) {
   .profile {
     max-width: 282px;

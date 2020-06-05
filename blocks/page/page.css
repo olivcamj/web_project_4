@@ -10,6 +10,24 @@
   -moz-osx-font-smoothing: auto;
 }
 
+@media screen and (max-width: 1024px) {
+  .page {
+    min-width: 1024px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page {
+    min-width: 768px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .page {
+    min-width: 425px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .page {
       min-width: 320px;

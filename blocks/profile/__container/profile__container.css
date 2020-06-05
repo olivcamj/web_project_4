@@ -1,11 +1,14 @@
 .profile__container {
   display: grid;
-  grid-template-columns: 168px 428px 2fr;
+  grid-template-columns: 168px 3fr 2fr;
   margin-top: 40px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   .profile__container {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
