@@ -9,3 +9,5 @@
 @import url('../blocks/btn/btn.css');
 @import url('../blocks/form/form.css');
 @import url('../blocks/modal/modal.css');
+@import url('../blocks/modal/_visible/modal_visible.css');
+@import url('../blocks/form/form.css');
