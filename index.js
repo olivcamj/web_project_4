@@ -8,23 +8,23 @@ const profileName = document.querySelector('.profile__heading');
 const profileOccupation = document.querySelector('.profile__occupation');
 
 function toggleModal() {
-    modal.classList.toggle('modal_visible'); 
+  modal.classList.toggle('modal_visible'); 
 }
 
 editBtn.addEventListener('click', () => {
-    toggleModal();
+  toggleModal();
 
-    inputName.value = profileName.textContent;
-    inputOccupation.value = profileOccupation.textContent;
+  inputName.value = profileName.textContent;
+  inputOccupation.value = profileOccupation.textContent;
 })
 modalCloseBtn.addEventListener('click', toggleModal)
 
 form.addEventListener('submit', (evt) =>{
-    evt.preventDefault(); //prevent automatic refresh of page on submit
+  evt.preventDefault(); //prevent automatic refresh of page on submit
 
-    profileName.textContent = inputName.value;
-    profileOccupation.textContent = inputOccupation.value;
+  profileName.textContent = inputName.value;
+  profileOccupation.textContent = inputOccupation.value;
 
-    toggleModal();
+  toggleModal();
 })
 
