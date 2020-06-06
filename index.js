@@ -16,8 +16,8 @@ editBtn.addEventListener('click', () => {
 
   inputName.value = profileName.textContent;
   inputOccupation.value = profileOccupation.textContent;
-})
-modalCloseBtn.addEventListener('click', toggleModal)
+});
+modalCloseBtn.addEventListener('click', toggleModal);
 
 form.addEventListener('submit', (evt) =>{
   evt.preventDefault(); //prevent automatic refresh of page on submit
@@ -26,5 +26,5 @@ form.addEventListener('submit', (evt) =>{
   profileOccupation.textContent = inputOccupation.value;
 
   toggleModal();
-})
+});
 
