@@ -1,5 +1,3 @@
-@import url('./_narrow/section_narrow.css');
-
 .section {
   max-width: calc(100% - 199px*2);
   margin-right: auto;
