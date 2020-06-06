@@ -8,17 +8,18 @@
 
 @media screen and (max-width: 768px) {
   .profile__heading {
-    font-size: 37px;
+    font-size: 32px;
     line-height: 50px;
   }
 }
 @media screen and (max-width: 425px) {
   .profile__heading {
-    font-size: 32px;
+    font-size: 29px;
   }
 }
 @media screen and (max-width: 320px) {
   .profile__heading {
+    min-width: 195px;
     font-size: 22px;
     text-align: center;
     margin-left: 40px;
