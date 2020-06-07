@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Author" content="Olivia Cameron">
     <title>Around the U.S.</title>
     <link rel="stylesheet" href="./pages/index.css">
   </head>
   <body>
     <div class="page">
       <header class="header section">
-        <img src="./images/logo.png" alt="Around the U.S." class="header__logo">
+        <img src="./images/logo.svg" alt="Around the U.S." class="header__logo">
       </header>
 
       <main class="content">
@@ -21,53 +20,53 @@
               <img src="./images/jacques.jpg" alt="A profile picture of Jacques Cousteau" class="profile__avatar">
             </div>
             <div class="profile__info">
-              <h2 class="profile__heading">Jacques Cousteau</h2>
-              <button type="button" class="profile__editBtn"></button>
+              <h1 class="profile__heading">Jacques Cousteau</h1>
+              <button aria-label="Edit" type="button" class="profile__editBtn"></button>
               <p class="profile__occupation">Explorer</p>
             </div>
-            <button type="button" class="profile__addBtn"></button>
+            <button aria-label="Add" type="button" class="profile__addBtn"></button>
           </div>
         </section>
 
         <section class="elements section">
           <ul class="elements__container">
             <li class="element">
-              <img src="./images/yosemiteValley.jpg" alt="A river in Yosemite Valley" class="element__img">
+              <div style="background-image: url('./images/yosemiteValley.jpg');" class="element__img"></div>
               <div class="element__description">
                 <h3 class="element__text">Yosemite Valley</h3>
                 <button class="element__heart-icon"></button>
               </div>     
             </li>
             <li class="element">
-              <img src="./images/lakeLouise.jpg" alt="Lake Louise bordered by mountains" class="element__img">
+              <div style="background-image: url('./images/lakeLouise.jpg');" class="element__img"></div>
               <div class="element__description">
                 <h3 class="element__text">Lake Louise</h3>
                 <button class="element__heart-icon"></button>
               </div>     
             </li>
             <li class="element">
-              <img src="./images/baldMountains.jpg" alt="Sunset with a red hue behind mountains" class="element__img">
+              <div style="background-image: url('./images/baldMountains.jpg');" class="element__img"></div>
               <div class="element__description">
                 <p class="element__text">Bald Mountains</p>
                 <button class="element__heart-icon"></button>
               </div>     
             </li>
             <li class="element">
-              <img src="./images/latemar.jpg" alt="Mountains and a starry night" class="element__img">
+              <div style="background-image: url('./images/latemar.jpg');" class="element__img"></div>
               <div class="element__description">
                 <h3 class="element__text">Latemar</h3>
                 <button class="element__heart-icon"></button>
               </div>     
             </li>
             <li class="element">
-              <img src="./images/vanoisNational.jpg" alt="Vanois National Mountains" class="element__img">
+              <div style="background-image: url('./images/vanoisNational.jpg');" class="element__img"></div>
               <div class="element__description">
                 <h3 class="element__text">Vanois National</h3>
                 <button class="element__heart-icon"></button>
               </div>     
             </li>
             <li class="element">
-              <img src="./images/lagoDiBraies.jpg" alt="Row boat on a placid lake with a snowy mountain backdrop" class="element__img">
+              <div style="background-image: url('./images/lagoDiBraies.jpg');" class="element__img"></div>
               <div class="element__description">
                 <h3 class="element__text">Lago di Braies</h3>
                 <button class="element__heart-icon"></button>
@@ -77,7 +76,7 @@
         </section>
 
       </main>
-      <footer class="footer section_narrow">
+      <footer class="footer section section_narrow">
         <p class="footer__copyright">© 2020 Around The U.S.</p>
       </footer>
     </div> 
@@ -92,9 +91,7 @@
               <input type="text" value="Jacques Cousteau" class="form__item form__item_el_name" required> <!--add placeholders-->
               <input type="text" value="Explorer" class="form__item form__item_el_occupation" required>   
             </fieldset>
-            <fieldset class="form__handlers">
-              <button type="submit" class="form__btn">Save</button>
-            </fieldset>
+            <button type="submit" class="form__btn">Save</button>
          </div>
         </form>
       </div>
