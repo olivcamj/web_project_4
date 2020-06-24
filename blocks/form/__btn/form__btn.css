@@ -20,10 +20,17 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 550px) {
+    .form__btn {
+        padding: 12px 60px 14px;
+    }
+}
 @media screen and (max-width: 320px) {
     .form__btn {
-        padding-right: 90px;
-        padding-left: 90px;
-        padding-bottom: 14px;
+        margin-top: 36px;
+        padding-right: 48px;
+        padding-left: 48px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
