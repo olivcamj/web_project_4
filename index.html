@@ -39,12 +39,12 @@
       </footer>
     </div> 
 
-    <div class="modal">
+    <div class="modal modal_type_editProfile">
       <div class="modal__content">
         <button class="modal__closeBtn"></button>
         <form  action="#" class="form">
           <div class="form__content">
-            <h3 class="form__heading"> Edit Profile</h3>
+            <h3 class="form__heading">Edit Profile</h3>
             <fieldset class="form__input-container">
               <input type="text" value="Jacques Cousteau" class="form__item form__item_el_name" required> <!--add placeholders-->
               <input type="text" value="Explorer" class="form__item form__item_el_occupation" required>   
@@ -55,10 +55,44 @@
       </div>
     </div>
 
+    <div class="modal modal_type_addCard">
+      <div class="modal__content">
+        <button class="modal__closeBtn"></button>
+        <form  action="#" class="form">
+          <div class="form__content">
+            <h3 class="form__heading">New place</h3>
+            <fieldset class="form__input-container">
+              <input type="text" class="form__item form__item_el_title" placeholder="Title"> <!--add placeholders-->
+              <input type="url" class="form__item form__item_el_url" placeholder="Image-link">   
+            </fieldset>
+            <button type="submit" class="form__btn">Create</button>
+         </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal modal_type_imgPopup">
+      <div class="modal__content"> 
+        <button class="modal__closeBtn"></button>
+        <!--
+          Give it fixed positioning, align it to the center of the page, 
+        and make the background for it semi-transparent and black. Code the 
+        semi-transparent background in the separate popup block.    
+       -->
+       <figure class="modal__figure">
+         <img src="" alt="" class="modal__img">
+         <figcaption class="modal__caption"></figcaption>
+       </figure>
+      </div>
+    </div>
+
+
+  
+
     <template class="card-template">
       <li class="card">
-        <button aria-label="Remove" class="card__removeBtn"></button>
         <div class="card__img"></div>
+        <button aria-label="Remove" class="card__removeBtn"></button>
         <div class="card__description">
           <h2 class="card__text"></h2>
           <button aria-label="Heart" class="card__heart-icon"></button>
