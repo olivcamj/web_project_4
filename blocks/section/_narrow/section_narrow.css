@@ -1,12 +1,6 @@
 .section_narrow {
   margin-top: 66px;
   padding-bottom: 60px;
-  margin-left: 199px;
-}
-@media screen and (max-width: 1024px) {
-  .section_narrow {
-    margin-left: 70px;
-  }
 }
 
 @media screen and (max-width: 768px) {
