@@ -5,31 +5,9 @@
   list-style: none;
   padding-left: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));/*3, 1fr*/
-  grid-template-rows: repeat(2, 361px);
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   gap: 20px 18px;
 }
-
-@media screen and (max-width: 768px) {
-  .elements__container {
-    grid-template-rows: repeat(3, 361px);
-    gap: 17px 14px;
-  }
-}
-
-
-@media screen and (max-width: 570px) {
-  .elements__container {
-    grid-template-rows: repeat(3, 361px);
-  }
-}
-
-@media screen and (max-width: 557px) {
-  .elements__container {
-    grid-template-rows: repeat(6, 361px);
-  }
-}
-
 
 @media screen and (max-width: 320px) {
   .elements__container {
