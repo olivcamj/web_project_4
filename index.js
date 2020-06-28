@@ -140,9 +140,6 @@ initialCards.forEach((data) => {
    renderCard(data);
 });
 
-// Use to add click event on the 'add' form_btn  
-const formAddCardBtn = addCardModalWindow.querySelector('.form__btn');
-
 const addName = document.querySelector('.form__item_el_title');
 const addUrl = document.querySelector('.form__item_el_url');
 
