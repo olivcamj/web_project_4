@@ -111,12 +111,12 @@ const createCard = (data) => {
     evt.target.closest('.card').remove();
   });
 
-  const openImageModal = (data) => {
-    const cardImg = openImgModalWindow.querySelector('.modal__img');
+  const openImageModal = () => {
+    const cardPopupImg = openImgModalWindow.querySelector('.modal__img');
     const cardTitle = openImgModalWindow.querySelector('.modal__caption');
 
-    cardImg.src = data.link;
-    cardImg.alt = data.name;
+    cardPopupImg.src = data.link;
+    cardPopupImg.alt = data.name;
     cardTitle.textContent = data.name;
   }
 
