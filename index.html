@@ -42,12 +42,18 @@
     <div class="modal modal_type_editProfile">
       <div class="modal__content">
         <button class="modal__closeBtn"></button>
-        <form  action="#" class="form">
+        <form  action="#" class="form" name="editProfile" novalidate>
           <div class="form__content">
             <h3 class="form__heading">Edit Profile</h3>
             <fieldset class="form__input-container">
-              <input type="text" value="Jacques Cousteau" class="form__item form__item_el_name" required> <!--add placeholders-->
-              <input type="text" value="Explorer" class="form__item form__item_el_occupation" required>   
+              <label class="form__label">
+                <input id="profile-name" type="text" name="name" class="form__item form__item_el_name" placeholder="Name" minlength="2" maxlength="40" required>
+                <span id="profile-name-error" class="form__error"></span>
+              </label>
+              <label class="form__label">
+                <input id="profile-text" type="text" name="occupation" class="form__item form__item_el_occupation" placeholder="Who are you" minlength="2" maxlength="200" required> 
+                <span id="profile-text-error"class="form__error"></span>
+              </label>
             </fieldset>
             <button type="submit" class="form__btn">Save</button>
          </div>
@@ -58,12 +64,18 @@
     <div class="modal modal_type_addCard">
       <div class="modal__content">
         <button class="modal__closeBtn"></button>
-        <form  action="#" class="form">
+        <form  action="#" class="form" novalidate>
           <div class="form__content">
             <h3 class="form__heading">New place</h3>
             <fieldset class="form__input-container">
-              <input type="text" class="form__item form__item_el_title" placeholder="Title"> <!--add placeholders-->
-              <input type="url" class="form__item form__item_el_url" placeholder="Image-link">   
+              <label class="form__label">
+                <input id="card-title" type="text" class="form__item form__item_el_title" placeholder="Title" minlength="1" maxlength="30" required> 
+                <span id="card-title-error" class="form__error"></span>
+              </label>
+              <label class="form__label">
+                <input id="card-url" type="url" class="form__item form__item_el_url" placeholder="Image-link" required>
+                <span id="card-url-error" class="form__error"></span>
+              </label>
             </fieldset>
             <button type="submit" class="form__btn">Create</button>
          </div>
@@ -99,6 +111,7 @@
         </div>  
       </li>   
     </template>
+    <script src="./validate.js"></script>
     <script  src="./index.js"></script> 
   </body>
 </html>
