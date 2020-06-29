@@ -21,6 +21,18 @@ const inputOccupation = document.querySelector('.form__item_el_occupation');
 
 function toggleModalWindow(modal) {
   modal.classList.toggle('modal_visible'); 
+  if (modal.classList.contains('modal_visible')) {
+    document.addEventListener('keydown', escapeModal);
+  } else {
+    document.removeEventListener('keydown', escapeModal);
+  }
+}
+
+//Function to close modal window using Escape key
+function escapeModal(evt) {
+  if (evt.key === "Escape") {
+    toggleModal(document.querySelector('.modal_visible'));
+  }
 }
 
 // The values of the input should be the same as the profile text
@@ -30,6 +42,7 @@ function formSubmitHandler(evt) {
   profileOccupation.textContent = inputOccupation.value;
   // Close modal after click on submit
   toggleModalWindow(editProfileModalWindow);
+  form.reset();
 } 
 
 // Connect the handler to the form:
@@ -56,6 +69,19 @@ addCardCloseBtn.addEventListener('click', () => {
 // Close btn for openImg 
 openImgCloseBtn.addEventListener('click', () => {
   toggleModalWindow(openImgModalWindow);
+});
+
+
+const modalList = Array.from(document.querySelectorAll('.modal'));
+
+// Each modal will close when a click evt occurs outside of modal
+modalList.forEach((modal) => {
+  modal.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains("modal_visible")) {
+      toggleModalWindow(evt.target);
+      form.reset();
+    }
+  });
 });
 
 
