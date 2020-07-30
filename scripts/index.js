@@ -4,7 +4,7 @@ import Card from './Card.js';
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
 const addCardModalWindow = document.querySelector('.modal_type_addCard');
-const openImgModalWindow = document.querySelector('.modal_type_imgPopup');
+export const openImgModalWindow = document.querySelector('.modal_type_imgPopup');
 const form = document.querySelector('.form'); 
 
 // Buttons and other DOM elements
