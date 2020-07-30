@@ -1,3 +1,10 @@
+import {
+    cardPopupImg, 
+    cardTitle 
+} from './util.js';
+
+import { openImgModalWindow } from './index.js';
+
 class Card {
     constructor(data, cardTemplateSelector) {
         this._link = data.link;
@@ -31,7 +38,8 @@ class Card {
         });
 
         cardImg.addEventListener('click', () => {
-            this._handlePreviewPicture(this._link, this._name);
+            console.log("Red rover");
+            this._handlePreviewPicture();
         });
     }
 
@@ -40,15 +48,12 @@ class Card {
         evt.target.classList.toggle('card__heart-icon_active');
     }
 
-    _handlePreviewPicture(link, name) {
-        const cardPopupImg = document.querySelector('.modal__img');
-        
-        //const cardTitle = cardElement.querySelector('.card__text');
-        const cardTitle = document.querySelector('.modal__caption');
-
+    _handlePreviewPicture() {
         cardPopupImg.src = this._link;
         cardPopupImg.alt = this._name;
         cardTitle.textContent = this._name;
+
+        openImgModalWindow.classList.add('modal_visible');
     }
     
     generateCard = () => {
