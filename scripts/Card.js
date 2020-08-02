@@ -38,7 +38,6 @@ class Card {
         });
 
         cardImg.addEventListener('click', () => {
-            console.log("Red rover");
             this._handlePreviewPicture();
         });
     }
