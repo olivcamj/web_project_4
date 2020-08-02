@@ -52,7 +52,7 @@ function toggleModalWindow(modal) {
 //Function to close modal window using Escape key
 function escapeModal(evt) {
   if (evt.key === "Escape") {
-    toggleModal(document.querySelector('.modal_visible'));
+    toggleModalWindow(document.querySelector('.modal_visible'));
   }
 }
 
@@ -84,7 +84,6 @@ form.addEventListener('submit', formSubmitHandler);
 // Edit btn events 
 profileEditBtn.addEventListener('click', () => {
     // Open modal
-    console.log("Hey");
   toggleModalWindow(editProfileModalWindow);
 });
 editProfileCloseBtn.addEventListener('click', () => {
