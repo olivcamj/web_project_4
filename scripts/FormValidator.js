@@ -19,12 +19,11 @@ class FormValidator {
     }
 
     _hideErrorMessage(inputElement) {
-        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
-        // Reset the message once it's hidden
-        errorElement.textContent = "";
-        
+        const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`); 
         errorElement.classList.remove(this._errorClass);
         inputElement.classList.remove(this._inputErrorClass);
+        // Reset the message once it's hidden
+        errorElement.textContent = "";
     }
 
     _checkInputValidity(inputElement) {
@@ -39,14 +38,15 @@ class FormValidator {
     
     /* This method will only enable the btn
  if all input is valid */
-    _toggleButtonState() {
+    _toggleButtonState(inputList, button) {
         const isValid = inputList.every((inputElement) => inputElement.validity.valid);
-        if (!isValid) {
-            this._submitButtonSelector.classList.add(`${this._inactiveButtonClass}`);
-            this._submitButtonSelector.disabled = true;
+
+        if(isValid) {
+            button.classList.remove(`${this._inactiveButtonClass}`);
+            button.disabled = false;   
         } else {
-            this._submitButtonSelector.classList.remove(`${this._inactiveButtonClass}`);
-            this._submitButtonSelector.disabled = false;
+            button.classList.add(`${this._inactiveButtonClass}`);
+            button.disabled = true;
         }
     }
 
