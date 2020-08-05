@@ -1,6 +1,7 @@
 export const cardPopupImg = document.querySelector('.modal__img');
 export const openImgModalWindow = document.querySelector('.modal_type_imgPopup');      
 export const cardTitle = document.querySelector('.modal__caption');
+export const form = document.querySelector('.form'); 
 
 export function toggleModalWindow(modal) {
     modal.classList.toggle('modal_visible'); 

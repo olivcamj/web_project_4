@@ -1,11 +1,11 @@
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
-import { toggleModalWindow, openImgModalWindow } from './util.js';
+import { toggleModalWindow, openImgModalWindow, form } from './util.js';
 
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
 const addCardModalWindow = document.querySelector('.modal_type_addCard');
-const form = document.querySelector('.form'); 
+
 
 // Buttons and other DOM elements
 const profileEditBtn = document.querySelector('.profile__editBtn');
