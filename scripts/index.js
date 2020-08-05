@@ -1,6 +1,6 @@
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
-import { toggleModalWindow } from './util.js';
+import { toggleModalWindow, openImgModalWindow } from './util.js';
 
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
