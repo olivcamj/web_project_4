@@ -1,3 +1,10 @@
+import {
+    cardPopupImg, 
+    cardTitle,
+    openImgModalWindow
+
+} from './util.js';
+
 class Card {
     constructor(data, cardTemplateSelector) {
         this._link = data.link;
@@ -31,7 +38,11 @@ class Card {
         });
 
         cardImg.addEventListener('click', () => {
-            this._handlePreviewPicture(this._link, this._name);
+                cardPopupImg.src = this._link;
+                cardPopupImg.alt = this._name;
+                cardTitle.textContent = this._name;
+            
+                openImgModalWindow.classList.add('modal_visible');
         });
     }
 
@@ -40,16 +51,6 @@ class Card {
         evt.target.classList.toggle('card__heart-icon_active');
     }
 
-    _handlePreviewPicture(link, name) {
-        const cardPopupImg = document.querySelector('.modal__img');
-        
-        //const cardTitle = cardElement.querySelector('.card__text');
-        const cardTitle = document.querySelector('.modal__caption');
-
-        cardPopupImg.src = this._link;
-        cardPopupImg.alt = this._name;
-        cardTitle.textContent = this._name;
-    }
     
     generateCard = () => {
 
@@ -67,12 +68,3 @@ class Card {
 }
 
 export default Card;
-
-// Open modal
-/*
-openImageModal(data)
-toggleModalWindow(openImgModalWindow);
-const openImageModal = () => {
-   
-
-*/

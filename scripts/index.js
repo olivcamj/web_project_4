@@ -1,10 +1,10 @@
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
+import { toggleModalWindow } from './util.js';
 
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
 const addCardModalWindow = document.querySelector('.modal_type_addCard');
-const openImgModalWindow = document.querySelector('.modal_type_imgPopup');
 const form = document.querySelector('.form'); 
 
 // Buttons and other DOM elements
@@ -40,34 +40,6 @@ const addCardValidator = new FormValidator(defaultConfig, addCardForm);
 editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
 
-function toggleModalWindow(modal) {
-  modal.classList.toggle('modal_visible'); 
-  if (modal.classList.contains('modal_visible')) {
-    document.addEventListener('keydown', escapeModal);
-  } else {
-    document.removeEventListener('keydown', escapeModal);
-  }
-}
-
-//Function to close modal window using Escape key
-function escapeModal(evt) {
-  if (evt.key === "Escape") {
-    toggleModal(document.querySelector('.modal_visible'));
-  }
-}
-
-const modalList = Array.from(document.querySelectorAll('.modal'));
-
-// Each modal will close when a click evt occurs outside of modal
-modalList.forEach((modal) => {
-  modal.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains("modal_visible")) {
-      toggleModalWindow(evt.target);
-      form.reset();
-    }
-  });
-});
-
 // The values of the input should be the same as the profile text
 function formSubmitHandler(evt) {
   evt.preventDefault(); //prevent automatic refresh of the page on submit
@@ -84,7 +56,6 @@ form.addEventListener('submit', formSubmitHandler);
 // Edit btn events 
 profileEditBtn.addEventListener('click', () => {
     // Open modal
-    console.log("Hey");
   toggleModalWindow(editProfileModalWindow);
 });
 editProfileCloseBtn.addEventListener('click', () => {
