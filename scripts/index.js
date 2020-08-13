@@ -1,6 +1,7 @@
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
 import { toggleModalWindow, openImgModalWindow, form } from './util.js';
+import Popup from './Popup.js';
 
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
@@ -40,40 +41,50 @@ const addCardValidator = new FormValidator(defaultConfig, addCardForm);
 editProfileValidator.enableValidation();
 addCardValidator.enableValidation();
 
+
+const editPopup = new Popup(editProfileModalWindow);
+const addPopup = new Popup(addCardModalWindow);
+const imgPopup = new Popup(openImgModalWindow);
+
 // The values of the input should be the same as the profile text
 function formSubmitHandler(evt) {
   evt.preventDefault(); //prevent automatic refresh of the page on submit
   profileName.textContent = inputName.value;
   profileOccupation.textContent = inputOccupation.value;
   // Close modal after click on submit
-  toggleModalWindow(editProfileModalWindow);
+
+  //toggleModalWindow(editProfileModalWindow);
+
+  editPopup.close();
   form.reset();
 } 
 
 // Connect the handler to the form:
 form.addEventListener('submit', formSubmitHandler);
 
+
+
 // Edit btn events 
 profileEditBtn.addEventListener('click', () => {
     // Open modal
-  toggleModalWindow(editProfileModalWindow);
+    editPopup.open();
 });
 editProfileCloseBtn.addEventListener('click', () => {
     // Close modal
-  toggleModalWindow(editProfileModalWindow);
+    editPopup.close();
 });
 
 // AddBtn events 
 addBtn.addEventListener('click', () => {
-  toggleModalWindow(addCardModalWindow);
+  addPopup.open();
 });
 addCardCloseBtn.addEventListener('click', () => {
-  toggleModalWindow(addCardModalWindow);
+  addPopup.close();
 });
 
 // Close btn for openImg 
 openImgCloseBtn.addEventListener('click', () => {
-  toggleModalWindow(openImgModalWindow);
+  imgPopup.close()
 });
 
 
@@ -130,5 +141,5 @@ addCardModalWindow.addEventListener('submit', (evt) => {
   addUrl.value = "";
 
   // Lastly, close the modal window
-  toggleModalWindow(addCardModalWindow);
+  addPopup.close();
 });
