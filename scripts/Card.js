@@ -1,15 +1,10 @@
-import {
-    cardPopupImg, 
-    cardTitle,
-    openImgModalWindow
-
-} from './util.js';
-
 class Card {
-    constructor(data, cardTemplateSelector) {
+    constructor(data, cardTemplateSelector, handleCardClick) {
         this._link = data.link;
         this._name = data.name;
         this._cardTemplateSelector = cardTemplateSelector;
+
+        this._handleCardClick = handleCardClick;
     }
 
     _getCardTemplate() {
@@ -38,11 +33,14 @@ class Card {
         });
 
         cardImg.addEventListener('click', () => {
-                cardPopupImg.src = this._link;
+            this._handleCardClick();
+                
+            /*cardPopupImg.src = this._link;
                 cardPopupImg.alt = this._name;
                 cardTitle.textContent = this._name;
             
                 openImgModalWindow.classList.add('modal_visible');
+            */
         });
     }
 
