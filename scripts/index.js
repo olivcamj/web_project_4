@@ -2,6 +2,7 @@ import FormValidator from './FormValidator.js';
 import Card from './Card.js';
 import { toggleModalWindow, openImgModalWindow, form } from './util.js';
 import Popup from './Popup.js';
+import PopupWithImage from './PopupWithImage.js';
 
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
@@ -118,9 +119,12 @@ const initialCards = [
 
 const cardTemplateSelector = '.card-template';
 const list = document.querySelector('.elements__container');
+const modalWithImage = new PopupWithImage(openImgModalWindow);
 
 const renderCard = (data) => {
-  const card = new Card(data, cardTemplateSelector);
+  const card = new Card(data, cardTemplateSelector, function() {
+    modalWithImage.open(data);
+  });
   
   // Prepend the result of the function
   return list.prepend(card.generateCard());
