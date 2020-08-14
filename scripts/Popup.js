@@ -14,7 +14,7 @@ class Popup {
         document.removeEventListener('keyup', this._handleEscClose)
     }
 
-    _handleEscClose() {
+    _handleEscClose(e) {
         if (e.which == 27){
             this.close();
         }
