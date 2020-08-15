@@ -1,6 +1,7 @@
 import FormValidator from './FormValidator.js';
 import Card from './Card.js';
 import { toggleModalWindow, openImgModalWindow, form } from './util.js';
+import Section from './Section.js';
 import Popup from './Popup.js';
 import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
@@ -30,6 +31,36 @@ const inputOccupation = document.querySelector('.form__item_el_occupation');
 const addName = document.querySelector('.form__item_el_title');
 const addUrl = document.querySelector('.form__item_el_url');
 
+const initialCards = [
+  {
+      name: "Yosemite Valley",
+      link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+  },
+  {
+      name: "Lake Louise",
+      link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+  },
+  {
+      name: "Bald Mountains",
+      link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+  },
+  {
+      name: "Latemar",
+      link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+  },
+  {
+      name: "Vanois National Park",
+      link: "https://code.s3.yandex.net/web-code/vanois.jpg"
+  },
+  {
+      name: "Lago di Braies",
+      link: "https://code.s3.yandex.net/web-code/lago.jpg"
+  }
+];
+
+const cardTemplateSelector = '.card-template';
+const list = document.querySelector('.elements__container');
+const modalWithImage = new PopupWithImage(openImgModalWindow);
 
 
 const defaultConfig = {
@@ -42,6 +73,22 @@ const defaultConfig = {
 
 const addCardForm = document.querySelector('.form__type_add');
 const editProfileForm = document.querySelector('.form__type_edit');
+
+
+const cardSection = new Section({
+    items: initialCards,
+    renderer:(data) => {
+      const card = new Card({
+        data,  
+        handleCardClick: () => {
+        modalWithImage.open(data);
+      }
+    }, '.card-template')
+      cardSection.addItem(card.generateCard());
+  },
+}, list);
+
+cardSection.renderer();
 
 const editProfileValidator = new FormValidator(defaultConfig, editProfileForm);
 const addCardValidator = new FormValidator(defaultConfig, addCardForm);
@@ -79,47 +126,7 @@ openImgCloseBtn.addEventListener('click', () => {
 
 
 
-const initialCards = [
-  {
-      name: "Yosemite Valley",
-      link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-  },
-  {
-      name: "Lake Louise",
-      link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-  },
-  {
-      name: "Bald Mountains",
-      link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-  },
-  {
-      name: "Latemar",
-      link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-  },
-  {
-      name: "Vanois National Park",
-      link: "https://code.s3.yandex.net/web-code/vanois.jpg"
-  },
-  {
-      name: "Lago di Braies",
-      link: "https://code.s3.yandex.net/web-code/lago.jpg"
-  }
-];
-
-const cardTemplateSelector = '.card-template';
-const list = document.querySelector('.elements__container');
-const modalWithImage = new PopupWithImage(openImgModalWindow);
-
-const renderCard = (data) => {
-  const card = new Card(data, cardTemplateSelector, function() {
-    modalWithImage.open(data);
-  });
-  
-  // Prepend the result of the function
-  return list.prepend(card.generateCard());
-};
-
-initialCards.forEach(data => renderCard(data));
+/*
 
 addCardModalWindow.addEventListener('submit', (evt) => {
   evt.preventDefault(); 
@@ -134,6 +141,8 @@ addCardModalWindow.addEventListener('submit', (evt) => {
   addPopup.close();
 });
 
+
+
 // The values of the input should be the same as the profile text
 function formSubmitHandler(evt) {
   evt.preventDefault(); //prevent automatic refresh of the page on submit
@@ -146,3 +155,4 @@ function formSubmitHandler(evt) {
 
 // Connect the handler to the form:
 form.addEventListener('submit', formSubmitHandler);
+*/
