@@ -3,6 +3,7 @@ import Card from './Card.js';
 import { toggleModalWindow, openImgModalWindow, form } from './util.js';
 import Popup from './Popup.js';
 import PopupWithImage from './PopupWithImage.js';
+import PopupWithForm from './PopupWithForm.js';
 
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
@@ -17,12 +18,18 @@ const editProfileCloseBtn = editProfileModalWindow.querySelector('.modal__closeB
 const addCardCloseBtn = addCardModalWindow.querySelector('.modal__closeBtn');
 const openImgCloseBtn = openImgModalWindow.querySelector('.modal__closeBtn');
 
+
 const profileName = document.querySelector('.profile__heading');
 const profileOccupation = document.querySelector('.profile__occupation');
 
 // Form data 
 const inputName = document.querySelector('.form__item_el_name');
 const inputOccupation = document.querySelector('.form__item_el_occupation');
+
+//add new card data
+const addName = document.querySelector('.form__item_el_title');
+const addUrl = document.querySelector('.form__item_el_url');
+
 
 
 const defaultConfig = {
@@ -46,24 +53,6 @@ addCardValidator.enableValidation();
 const editPopup = new Popup(editProfileModalWindow);
 const addPopup = new Popup(addCardModalWindow);
 const imgPopup = new Popup(openImgModalWindow);
-
-// The values of the input should be the same as the profile text
-function formSubmitHandler(evt) {
-  evt.preventDefault(); //prevent automatic refresh of the page on submit
-  profileName.textContent = inputName.value;
-  profileOccupation.textContent = inputOccupation.value;
-  // Close modal after click on submit
-
-  //toggleModalWindow(editProfileModalWindow);
-
-  editPopup.close();
-  form.reset();
-} 
-
-// Connect the handler to the form:
-form.addEventListener('submit', formSubmitHandler);
-
-
 
 // Edit btn events 
 profileEditBtn.addEventListener('click', () => {
@@ -132,9 +121,6 @@ const renderCard = (data) => {
 
 initialCards.forEach(data => renderCard(data));
 
-const addName = document.querySelector('.form__item_el_title');
-const addUrl = document.querySelector('.form__item_el_url');
-
 addCardModalWindow.addEventListener('submit', (evt) => {
   evt.preventDefault(); 
 
@@ -147,3 +133,16 @@ addCardModalWindow.addEventListener('submit', (evt) => {
   // Lastly, close the modal window
   addPopup.close();
 });
+
+// The values of the input should be the same as the profile text
+function formSubmitHandler(evt) {
+  evt.preventDefault(); //prevent automatic refresh of the page on submit
+  profileName.textContent = inputName.value;
+  profileOccupation.textContent = inputOccupation.value;
+  // Close modal after click on submit
+  editPopup.close();
+  form.reset();
+} 
+
+// Connect the handler to the form:
+form.addEventListener('submit', formSubmitHandler);
