@@ -5,6 +5,7 @@ import Section from './Section.js';
 import Popup from './Popup.js';
 import PopupWithImage from './PopupWithImage.js';
 import PopupWithForm from './PopupWithForm.js';
+import UserInfo from './UserInfo.js';
 
 // Wrappers
 const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
@@ -69,7 +70,7 @@ const defaultConfig = {
   inactiveButtonClass: 'form__btn_disabled',
   inputErrorClass: 'form__item_type_error',
   errorClass: 'form__error'
-}
+};
 
 const addCardForm = document.querySelector('.form__type_add');
 const editProfileForm = document.querySelector('.form__type_edit');
@@ -86,9 +87,48 @@ const cardSection = new Section({
     }, '.card-template')
       cardSection.addItem(card.generateCard());
   },
-}, list);
+}, list)
 
-cardSection.renderer();
+cardSection.renderItems();
+
+const userInfo = new UserInfo({
+  nameSelector: '.profile__heading',
+  jobSelector: '.profile__occupation'
+});
+
+
+const addForm = new PopupWithForm({
+  handleSubmitForm: () => {
+    const newCard = new Card({
+      data: {name: addName.value, link: addUrl.value},
+      handleCardClick:(data) => {
+        modalWithImage.open(data);
+      }
+    },  '.card-template');
+    cardSection.addItem(newCard.generateCard())
+    addForm.close();
+  },
+ 
+  popupSelector: addCardModalWindow,
+})
+
+addForm.setEventListeners();
+
+
+const editForm = new PopupWithForm({
+  handleSubmitForm: () => {
+    userInfo.setUserInfo({name: inputName.value, job: inputOccupation.value})
+  },
+  popupSelector: editProfileModalWindow
+});
+
+editForm.setEventListeners();
+
+profileEditBtn.addEventListener('click', () => {
+  //editForm.open();
+  userInfo.getUserInfo();
+});
+
 
 const editProfileValidator = new FormValidator(defaultConfig, editProfileForm);
 const addCardValidator = new FormValidator(defaultConfig, addCardForm);
@@ -123,36 +163,3 @@ addCardCloseBtn.addEventListener('click', () => {
 openImgCloseBtn.addEventListener('click', () => {
   imgPopup.close()
 });
-
-
-
-/*
-
-addCardModalWindow.addEventListener('submit', (evt) => {
-  evt.preventDefault(); 
-
-  const data = {name: addName.value, link: addUrl.value};
-  renderCard(data);
-
-  addName.value = "";
-  addUrl.value = "";
-
-  // Lastly, close the modal window
-  addPopup.close();
-});
-
-
-
-// The values of the input should be the same as the profile text
-function formSubmitHandler(evt) {
-  evt.preventDefault(); //prevent automatic refresh of the page on submit
-  profileName.textContent = inputName.value;
-  profileOccupation.textContent = inputOccupation.value;
-  // Close modal after click on submit
-  editPopup.close();
-  form.reset();
-} 
-
-// Connect the handler to the form:
-form.addEventListener('submit', formSubmitHandler);
-*/
