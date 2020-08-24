@@ -36,8 +36,6 @@ class FormValidator {
            }
     }
     
-    /* This method will only enable the btn
- if all input is valid */
     _toggleButtonState(inputList, button) {
         const isValid = inputList.every((inputElement) => inputElement.validity.valid);
 
@@ -56,7 +54,7 @@ class FormValidator {
         // Find a btn  
         const button = this._formElement.querySelector(this._submitButtonSelector);
         //Ensures the btn starts off disabled
-        //this._toggleButtonState(this._inputSelector);
+        this._toggleButtonState(inputList, button);
       
         //Iterate through inputs
         inputList.forEach((inputElement) => {
@@ -73,8 +71,7 @@ class FormValidator {
         // Cancel the browser default action, so that clicking on the submit button won't refresh the page
         evt.preventDefault();
         }));
-
-        this._setEventListeners();  
+        this._setEventListeners(); 
      }
 }
 

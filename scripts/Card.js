@@ -1,5 +1,5 @@
 class Card {
-    constructor({data, handleCardClick}, cardTemplateSelector) {
+    constructor({ data, handleCardClick }, cardTemplateSelector) {
         this._link = data.link;
         this._name = data.name;
         this._cardTemplateSelector = cardTemplateSelector;
@@ -18,7 +18,6 @@ class Card {
     }
 
     _addEventListeners() {
-
         const cardHeartIcon = this._card.querySelector('.card__heart-icon');
         const cardRemoveBtn = this._card.querySelector('.card__removeBtn');
         const cardImg = this._card.querySelector('.card__img');
@@ -34,13 +33,6 @@ class Card {
 
         cardImg.addEventListener('click', () => {
             this._handleCardClick();
-                
-            /*cardPopupImg.src = this._link;
-                cardPopupImg.alt = this._name;
-                cardTitle.textContent = this._name;
-            
-                openImgModalWindow.classList.add('modal_visible');
-            */
         });
     }
 
@@ -53,7 +45,6 @@ class Card {
     generateCard = () => {
 
         this._card = this._getCardTemplate();
-
       
         this._card.querySelector('.card__text').textContent = this._name;
         this._card.querySelector('.card__img').style.backgroundImage = `url(${this._link})`;
