@@ -15,16 +15,24 @@ class Popup {
     }
 
     _handleEscClose(e) {
-        if (e.which == 27){
+        if (e.which === 27){
             this.close();
         }
-
     }
 
     setEventListeners() {
-        this._popupElement.querySelector('.modal_visble').addEventListener('click', (e) => {
+        this._popupElement
+        .querySelector('.modal__closeBtn')
+        .addEventListener('click', () => {
             this.close();
         });
+
+        this._popupElement.addEventListener('click', (e) => {
+            if (!e.target.closest(".modal__content")) {
+                this.close();
+            }
+
+        })
     }
 }
 
