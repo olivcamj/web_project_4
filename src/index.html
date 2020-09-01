@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Around the U.S.</title>
+    <!--<link rel="stylesheet" href="./pages/index.css">-->
+  </head>
+  <body>
+    <div class="page">
+      <header class="header section">
+        <img src="./images/logo.svg" alt="Around the U.S." class="header__logo">
+      </header>
+
+      <main class="content">
+
+        <section class="profile section">
+          <div class="profile__container">
+            <div class="profile__avatar-container">
+              <img src="./images/jacques.jpg" alt="A profile picture of Jacques Cousteau" class="profile__avatar">
+            </div>
+            <div class="profile__info">
+              <h1 class="profile__heading">Jacques Cousteau</h1>
+              <button aria-label="Edit" type="button" class="profile__editBtn"></button>
+              <p class="profile__occupation">Explorer</p>
+            </div>
+            <button aria-label="Add" type="button" class="profile__addBtn"></button>
+          </div>
+        </section>
+
+        <section class="elements section">
+          <ul class="elements__container">
+          </ul>
+        </section>
+
+      </main>
+      <footer class="footer section section_narrow">
+        <p class="footer__copyright">© 2020 Around The U.S.</p>
+      </footer>
+    </div> 
+
+    <div class="modal modal_type_editProfile">
+      <div class="modal__content">
+        <button class="modal__closeBtn"></button>
+        <form  action="#" class="form form__type_edit" name="editProfile" novalidate>
+          <div class="form__content">
+            <h3 class="form__heading">Edit Profile</h3>
+            <fieldset class="form__input-container">
+              <label class="form__label">
+                <input id="profile-name" type="text" name="name" class="form__item form__item_el_name" placeholder="Name" minlength="2" maxlength="40" required>
+                <span id="profile-name-error" class="form__error"></span>
+              </label>
+              <label class="form__label">
+                <input id="profile-text" type="text" name="occupation" class="form__item form__item_el_occupation" placeholder="Who are you" minlength="2" maxlength="200" required> 
+                <span id="profile-text-error"class="form__error"></span>
+              </label>
+            </fieldset>
+            <button type="submit" class="form__btn">Save</button>
+         </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal modal_type_addCard">
+      <div class="modal__content">
+        <button class="modal__closeBtn"></button>
+        <form  action="#" class="form form__type_add" novalidate>
+          <div class="form__content">
+            <h3 class="form__heading">New place</h3>
+            <fieldset class="form__input-container">
+              <label class="form__label">
+                <input id="card-title" type="text" class="form__item form__item_el_title" placeholder="Title" minlength="1" maxlength="30" required> 
+                <span id="card-title-error" class="form__error"></span>
+              </label>
+              <label class="form__label">
+                <input id="card-url" type="url" class="form__item form__item_el_url" placeholder="Image-link" required>
+                <span id="card-url-error" class="form__error"></span>
+              </label>
+            </fieldset>
+            <button type="submit" class="form__btn">Create</button>
+         </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal modal_type_imgPopup">
+      <div class="modal__content"> 
+        <button class="modal__closeBtn"></button>
+        <!--
+          Give it fixed positioning, align it to the center of the page, 
+        and make the background for it semi-transparent and black. Code the 
+        semi-transparent background in the separate popup block.    
+       -->
+       <figure class="modal__figure">
+         <img src="#" alt="" class="modal__img">
+         <figcaption class="modal__caption"></figcaption>
+       </figure>
+      </div>
+    </div>
+
+
+  
+
+    <template class="card-template">
+      <li class="card">
+        <div class="card__img"></div>
+        <button aria-label="Remove" class="card__removeBtn"></button>
+        <div class="card__description">
+          <h2 class="card__text"></h2>
+          <button aria-label="Heart" class="card__heart-icon"></button>
+        </div>  
+      </li>   
+    </template>
+    
+  
+   <!--<script type="module" src="./pages/index.js"></script>--> 
+  </body>
+</html>
