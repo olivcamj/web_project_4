@@ -15,7 +15,8 @@ class Popup {
     }
 
     _handleEscClose(e) {
-        if (e.which === 27){
+        const ESC = 27;
+        if (e.which === ESC){
             this.close();
         }
     }
