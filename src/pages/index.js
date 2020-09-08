@@ -84,7 +84,6 @@ addCardValidator.enableValidation();
 
 profileEditBtn.addEventListener('click', () => {
     editForm.open();
-    userInfo.getUserInfo();
 });
 editProfileCloseBtn.addEventListener('click', () => {
     // Close modal
