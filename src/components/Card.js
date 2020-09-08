@@ -27,7 +27,7 @@ class Card {
         });
         
         cardRemoveBtn.addEventListener('click', () => {
-            this._card.closest('.card').remove();
+            this._card.remove();
             this._card = null;
         });
 
