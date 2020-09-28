@@ -14,6 +14,7 @@
 .card__heart-icon_active{background-image:url(75438e944a43e4c0b404a3fd95e002f1.svg);background-repeat:no-repeat}
 .card__img{width:100%;height:calc(100% - 79px);background-size:100% 100%;background-repeat:no-repeat;border-radius:10px 10px 0 0}
 .card__text{margin:0;color:#000;font-style:normal;font-weight:900;font-size:24px;line-height:29px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card__removeBtn_type_hidden{display:none}
 .card{border-radius:10px;box-shadow:0 0 25px rgba(0,0,0,.15);background-color:#fff;height:361px}@media screen and (max-width:320px){.card{margin-bottom:20px;width:282px;height:282px}}
 .profile__container{display:grid;grid-template-columns:168px 3fr 2fr;margin-top:40px}@media screen and (max-width:648px){.profile__container{display:flex;flex-direction:column;align-items:center;text-align:center}}
 .profile__avatar{width:120px;height:120px;border-radius:50%}
