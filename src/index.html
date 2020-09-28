@@ -69,11 +69,11 @@
             <h3 class="form__heading">New place</h3>
             <fieldset class="form__input-container">
               <label class="form__label">
-                <input id="card-title" type="text" class="form__item form__item_el_title" placeholder="Title" minlength="1" maxlength="30" required> 
+                <input id="card-title" type="text" name="name" class="form__item form__item_el_title" placeholder="Title" minlength="1" maxlength="30" required> 
                 <span id="card-title-error" class="form__error"></span>
               </label>
               <label class="form__label">
-                <input id="card-url" type="url" class="form__item form__item_el_url" placeholder="Image-link" required>
+                <input id="card-url" type="url" name="link" class="form__item form__item_el_url" placeholder="Image-link" required>
                 <span id="card-url-error" class="form__error"></span>
               </label>
             </fieldset>
@@ -98,7 +98,17 @@
       </div>
     </div>
 
-
+    <div class="modal modal_type_deleteCard">
+      <div class="modal__content">
+        <button class="modal__closeBtn"></button>
+        <form  action="#" class="form form__type_delete" novalidate>
+          <div class="form__content">
+            <h3 class="form__heading">Are you sure?</h3>
+            <button type="submit" class="form__btn">Yes</button>
+         </div>
+        </form>
+      </div>
+    </div>
   
 
     <template class="card-template">
