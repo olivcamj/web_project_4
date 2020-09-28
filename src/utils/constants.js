@@ -39,6 +39,7 @@ export const defaultConfig = {
 export const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
 export const addCardModalWindow = document.querySelector('.modal_type_addCard');
 export const openImgModalWindow = document.querySelector('.modal_type_imgPopup');
+export const deleteCardModalWindow = document.querySelector('.modal_type_deleteCard');
 // Buttons and other DOM elements
 export const profileEditBtn = document.querySelector('.profile__editBtn');
 export const addBtn = document.querySelector('.profile__addBtn');
@@ -53,6 +54,8 @@ export const addName = document.querySelector('.form__item_el_title');
 export const addUrl = document.querySelector('.form__item_el_url');
 export const cardTemplateSelector = '.card-template';
 export const list = document.querySelector('.elements__container');
-
+export const avatar = document.querySelector('.profile__avatar');
 export const addCardForm = document.querySelector('.form__type_add');
 export const editProfileForm = document.querySelector('.form__type_edit');
+
+export const MYID = '822f330ae567b560eb7c3848';
