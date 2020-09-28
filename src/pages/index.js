@@ -1,10 +1,10 @@
 import './index.css';
 import { 
-    initialCards, 
     defaultConfig, 
     editProfileModalWindow, 
     addCardModalWindow, 
     openImgModalWindow,
+    deleteCardModalWindow,
     profileEditBtn, 
     addBtn, 
     editProfileCloseBtn, 
@@ -13,11 +13,11 @@ import {
     cardTemplateSelector,
     inputName,
     inputOccupation,
-    addName,
-    addUrl,
     list,
     addCardForm,
-    editProfileForm
+    editProfileForm,
+    avatar,
+    MYID
 } from '../utils/constants.js';
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
@@ -30,28 +30,51 @@ import UserInfo from '../components/UserInfo.js';
 
 const modalWithImage = new PopupWithImage(openImgModalWindow);
 
+const deleteForm = new PopupWithForm({
+    handleSubmitForm: () => {},
+    popupSelector: deleteCardModalWindow
+})
+
+deleteForm.setEventListeners();
+
+function creatingCardInfo(data) {
+    const card = new Card({
+        data,
+        handleCardClick: () => {
+            modalWithImage.open(data);  
+        },
+        handleDeleteClick: (cardId) => {           
+            deleteForm.setDeleteHandler(() => {
+                api.deleteCard(cardId);
+                card.deleteCard();
+                deleteForm.close();
+            });
+            deleteForm.open();
+        },
+        handleDeleteIcon: () => {
+            if (MYID !== data.owner._id) {
+                card.hideRemoveBtn();
+            }}
+    }, cardTemplateSelector);
+    return card;
+}
+
+
 const api = new Api({
     baseUrl: "https://around.nomoreparties.co/v1/group-4",
     headers: {
         authorization: "072f7e25-49ec-4ac7-aa51-bf0613ff728e",
         "Content-Type": "application/json"
     }
-})
+});
 
 api.getInitialCards()
-    .then(res => {
-        
+    .then(res => { 
         const cardSection = new Section({
             items: res,
             renderer:(data) => {
-                const card = new Card({
-                    data,  
-                    handleCardClick: () => {
-                        modalWithImage.open(data);
-                }
-                }, 
-                '.card-template')
-            cardSection.addItem(card.generateCard());
+                const card = creatingCardInfo(data);
+                cardSection.addItem(card.generateCard());
         },
         }, list);
         
@@ -61,29 +84,22 @@ api.getInitialCards()
             handleSubmitForm: (data) => {
                 api.addCard(data)
                     .then(res => {
-                        const newCard = new Card({
-                            data: {name: addName.value, link: addUrl.value},
-                            handleCardClick:(data) => {
-                                modalWithImage.open(data);
-                            }
-                            , cardTemplateSelector});
-            
-                        cardSection.addItem(newCard.generateCard())
+                        const newCard = creatingCardInfo(res);     
+                        cardSection.addItem(newCard.generateCard());
                         addForm.close();
                     }) 
             },
             popupSelector: addCardModalWindow
         }); 
-            
         addForm.setEventListeners();
-        // AddBtn events 
-addBtn.addEventListener('click', () => {
-    addForm.open();
-});
-addCardCloseBtn.addEventListener('click', () => {
-    addForm.close();
-});
-    })
+     // AddBtn events 
+    addBtn.addEventListener('click', () => {
+        addForm.open();
+    });
+    addCardCloseBtn.addEventListener('click', () => {
+        addForm.close();
+    });
+})
 
 
 const userInfo = new UserInfo({
@@ -96,6 +112,7 @@ api.getUserInfo()
     .then(res => {
         console.log('profile!!', res)
         userInfo.setUserInfo({ name: res.name, job: res.about })
+        avatar.src = res.avatar;
     })
 
 
