@@ -5,19 +5,26 @@ class PopupWithForm extends Popup {
         super(popupSelector);
         this._handleSubmitForm = handleSubmitForm;
         this._form = this._popupElement.querySelector('.form');
+        this._popupElement = popupSelector;
+        this._inputList = this._popupElement.querySelectorAll(".form__item");
     }
 
     _getInputValues() {
-        //collects data from all the input fields.
-        const inputList = Array.from(this._form.querySelectorAll('.form__item'));
+        //collects data from all the input fields.  
+        //const inputList = Array.from(this._form.querySelectorAll('.form__item'));
         this._inputValues = {};
-        inputList.forEach(input => {this._inputValues[input.name] = input.value});
+        this._inputList.forEach(input => {this._inputValues[input.name] = input.value});
         return this._inputValues;
+    }
+
+    setDeleteHandler(handler) {
+        this._handleSubmitForm = handler;
     }
 
     setEventListeners() {
         //need to add the click event listener to the close icon while also adding the submit event handler.
         this._form.addEventListener('submit', (e) => {
+        //this._popupElement.addEventListener('submit', (e) => {
             e.preventDefault();
             this._handleSubmitForm(this._getInputValues());
             this.close();
