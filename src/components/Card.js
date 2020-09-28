@@ -1,12 +1,19 @@
 class Card {
-    constructor({ data, handleCardClick }, cardTemplateSelector) {
+    constructor({ data, handleCardClick, handleDeleteClick, handleDeleteIcon }, cardTemplateSelector) {
         this._link = data.link;
         this._name = data.name;
+        this._id = data._id;
+
         this._cardTemplateSelector = cardTemplateSelector;
 
         this._handleCardClick = handleCardClick;
+        this._handleDeleteClick = handleDeleteClick;
+        this._handleDeleteIcon = handleDeleteIcon;
     }
 
+    id() {
+        return this._id;
+    }
     _getCardTemplate() {
         const cardTemplate = document
             .querySelector(this._cardTemplateSelector)
@@ -17,18 +24,21 @@ class Card {
         return cardTemplate;    
     }
 
+    _cardRemoveBtn() {
+      return this._card.querySelector('.card__removeBtn');
+    }
+
     _addEventListeners() {
         const cardHeartIcon = this._card.querySelector('.card__heart-icon');
-        const cardRemoveBtn = this._card.querySelector('.card__removeBtn');
+        
         const cardImg = this._card.querySelector('.card__img');
 
         cardHeartIcon.addEventListener('click', (evt) => {
             this._handleHeartIcon(evt);
         });
         
-        cardRemoveBtn.addEventListener('click', () => {
-            this._card.remove();
-            this._card = null;
+        this._cardRemoveBtn().addEventListener('click', () => {
+            this._handleDeleteClick(this.id());
         });
 
         cardImg.addEventListener('click', () => {
@@ -41,6 +51,14 @@ class Card {
         evt.target.classList.toggle('card__heart-icon_active');
     }
 
+    deleteCard() {
+        this._card.remove();
+        this._card = null;
+    }
+
+    hideRemoveBtn() {
+        this._cardRemoveBtn().classList.add('card__removeBtn_type_hidden');
+    }
     
     generateCard() {
 
@@ -50,6 +68,7 @@ class Card {
         this._card.querySelector('.card__img').style.backgroundImage = `url(${this._link})`;
         
         this._addEventListeners();
+        this._handleDeleteIcon();
         
         return this._card;
     };

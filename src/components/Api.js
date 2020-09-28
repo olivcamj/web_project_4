@@ -21,18 +21,26 @@ class Api {
     }
 
     addCard({ name, link }) {
-        return fetch(this._baseUrl + '/cards' , {
-            headers: this._headers, 
+        return fetch(this._baseUrl + '/cards', {
+            headers: this._headers,
             method: "POST",
             body: JSON.stringify({
                 name,
                 link
             })
         })
-        .then(res => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-        .catch(res => console.log(res))
+        .then(res => res.ok ? res.json() : Promise.reject('Error' + res.statusText))
+        .catch(err => console.log(err))
     }
     
+    deleteCard(cardId) {
+        return fetch(this._baseUrl + '/cards/' + cardId, {
+            headers: this._headers,
+            method: "DELETE"
+        })
+        .then(res => {res.ok ? res.json() : Promise.reject('Error!' + res.statusText)})
+        .catch(res => console.log(res))
+    }
 }
 
 export default Api;
