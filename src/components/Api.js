@@ -41,6 +41,19 @@ class Api {
         .then(res => {res.ok ? res.json() : Promise.reject('Error!' + res.statusText)})
         .catch(res => console.log(res))
     }
+
+    editUserInfo(data) {
+        return fetch(this._baseUrl + '/users/me', {
+            headers: this._headers,
+            method: "PATCH",
+            body: JSON.stringify({
+                name: data.name,
+                about: data.title
+            })
+        })
+        .then(res => {res.ok ? res.json() : Promise.reject('Error!' + res.statusText)})
+        .catch(res => console.log(res))
+    }
 }
 
 export default Api;
