@@ -104,21 +104,25 @@ api.getInitialCards()
 
 const userInfo = new UserInfo({
     nameSelector: '.profile__heading',
-    jobSelector: '.profile__occupation'
+    titleSelector: '.profile__occupation'
 });
 
 
 api.getUserInfo()
     .then(res => {
         console.log('profile!!', res)
-        userInfo.setUserInfo({ name: res.name, job: res.about })
+        userInfo.setUserInfo({ name: res.name, title: res.about })
         avatar.src = res.avatar;
     })
 
 
 const editForm = new PopupWithForm({
-    handleSubmitForm: () => {
-        userInfo.setUserInfo({name: inputName.value, job: inputOccupation.value})
+    handleSubmitForm: (data) => {
+        api.editUserInfo(data)
+        .then(res => {
+            userInfo.setUserInfo(data)
+            editForm.close()
+        }) 
     },
     popupSelector: editProfileModalWindow
 });
