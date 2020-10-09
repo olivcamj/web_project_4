@@ -54,7 +54,31 @@ function creatingCardInfo(data) {
         handleDeleteIcon: () => {
             if (MYID !== data.owner._id) {
                 card.hideRemoveBtn();
-            }}
+            }},
+        handleLikeCount: () => {
+            if (data.likes.length > 0) {
+                data.likes.forEach(element => {
+                    if( element._id === MYID) {
+                        card.renderLike()
+                    }
+                });
+            }
+        },
+        handleLikeClick: (cardId) => {
+            if (card.wasLiked() === false) {
+                api.changeLikeStatus(cardId, true)
+                .then(result => {
+                    const count = result.likes.length;
+                    card.like(count);
+                })
+            } else {
+                api.changeLikeStatus(cardId, false)
+                .then(result => {
+                    const count = result.likes.length;
+                    card.deleteLike(count);
+                })
+            }
+        }
     }, cardTemplateSelector);
     return card;
 }
