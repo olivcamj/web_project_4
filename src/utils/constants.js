@@ -40,12 +40,15 @@ export const editProfileModalWindow = document.querySelector('.modal_type_editPr
 export const addCardModalWindow = document.querySelector('.modal_type_addCard');
 export const openImgModalWindow = document.querySelector('.modal_type_imgPopup');
 export const deleteCardModalWindow = document.querySelector('.modal_type_deleteCard');
+export const setUserAvatarModalWindow = document.querySelector('.modal_type_setAvatar');
 // Buttons and other DOM elements
 export const profileEditBtn = document.querySelector('.profile__editBtn');
 export const addBtn = document.querySelector('.profile__addBtn');
+export const setAvatarBtn = document.querySelector('.profile__avatar-overlay');
 export const editProfileCloseBtn = editProfileModalWindow.querySelector('.modal__closeBtn');
 export const addCardCloseBtn = addCardModalWindow.querySelector('.modal__closeBtn');
 export const openImgCloseBtn = openImgModalWindow.querySelector('.modal__closeBtn');
+export const formSave = document.querySelector('.form__btn');
 // Form data 
 export const inputName = document.querySelector('.form__item_el_name');
 export const inputOccupation = document.querySelector('.form__item_el_occupation');
