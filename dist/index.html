@@ -18,6 +18,7 @@
           <div class="profile__container">
             <div class="profile__avatar-container">
               <img src="6163c2039d1f0eb8d7cac65574b1d73a.jpg" alt="A profile picture of Jacques Cousteau" class="profile__avatar">
+              <button aria-label="Edit-Avatar" type="button" class="profile__avatar-overlay"></button>
             </div>
             <div class="profile__info">
               <h1 class="profile__heading">Jacques Cousteau</h1>
@@ -110,6 +111,21 @@
       </div>
     </div>
   
+    <div class="modal modal_type_setAvatar">
+      <div class="modal__content">
+        <button class="modal__closeBtn"></button>
+        <form  action="#" class="form form__type_delete" novalidate>
+          <div class="form__content">
+            <h3 class="form__heading">Change profile picture</h3>
+            <label class="form__label">
+              <input type="url" name="link" class="form__item form__item_el_url" placeholder="Image-link" required>
+              <span class="form__error"></span>
+            </label>
+            <button type="submit" class="form__btn">Save</button>
+         </div>
+        </form>
+      </div>
+    </div>
 
     <template class="card-template">
       <li class="card">
