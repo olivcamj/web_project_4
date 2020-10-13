@@ -5,6 +5,8 @@
 @import url('./__occupation/profile__occupation.css');
 @import url('./__editBtn/profile__editBtn.css');
 @import url('./__addBtn/profile__addBtn.css');
+@import url('./__avatar-overlay/profile__avatar-overlay.css');
+@import url('./__avatar-container/profile__avatar-container.css'); 
 
 .profile {
   max-width: 882px;
