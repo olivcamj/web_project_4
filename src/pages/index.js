@@ -5,14 +5,15 @@ import {
     addCardModalWindow, 
     openImgModalWindow,
     deleteCardModalWindow,
+    setUserAvatarModalWindow,
     profileEditBtn, 
     addBtn, 
+    setAvatarBtn,
     editProfileCloseBtn, 
     addCardCloseBtn, 
     openImgCloseBtn, 
     cardTemplateSelector,
-    inputName,
-    inputOccupation,
+    formSave,
     list,
     addCardForm,
     editProfileForm,
@@ -36,6 +37,30 @@ const deleteForm = new PopupWithForm({
 })
 
 deleteForm.setEventListeners();
+function renderLoading(isLoading) {
+        if (isLoading) {
+            formSave.textContent += '...';
+        } else {
+            formSave.textContent = formSave.textContent.slice(0,-3);
+        }
+}
+const setUserAvatar = new PopupWithForm({
+    handleSubmitForm: (data) => {
+            renderLoading(true);
+            api.setUserAvatar(data.link)
+                .then(res => {
+                    avatar.src = data.link;
+                    renderLoading(false);
+                    setUserAvatar.close();
+    })},
+    popupSelector: setUserAvatarModalWindow
+})
+
+setUserAvatar.setEventListeners();
+setAvatarBtn.addEventListener('click', () => {
+    setUserAvatar.open();
+});
+
 
 function creatingCardInfo(data) {
     const card = new Card({
@@ -59,7 +84,7 @@ function creatingCardInfo(data) {
             if (data.likes.length > 0) {
                 data.likes.forEach(element => {
                     if( element._id === MYID) {
-                        card.renderLike()
+                        card.renderLike();
                     }
                 });
             }
@@ -106,9 +131,11 @@ api.getInitialCards()
 
         const addForm = new PopupWithForm({
             handleSubmitForm: (data) => {
+                renderLoading(true);
                 api.addCard(data)
                     .then(res => {
-                        const newCard = creatingCardInfo(res);     
+                        const newCard = creatingCardInfo(res);  
+                        renderLoading(false);   
                         cardSection.addItem(newCard.generateCard());
                         addForm.close();
                     }) 
@@ -142,9 +169,11 @@ api.getUserInfo()
 
 const editForm = new PopupWithForm({
     handleSubmitForm: (data) => {
+        renderLoading(true)
         api.editUserInfo(data)
         .then(res => {
             userInfo.setUserInfo(data)
+            renderLoading(false)
             editForm.close()
         }) 
     },
@@ -166,8 +195,6 @@ editProfileCloseBtn.addEventListener('click', () => {
     // Close modal
     editForm.close();
 });
-
-
 
 const imgPopup = new Popup(openImgModalWindow);
 // Close btn for openImg 
