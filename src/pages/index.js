@@ -48,7 +48,7 @@ const setUserAvatar = new PopupWithForm({
     handleSubmitForm: (data) => {
             renderLoading(true);
             api.setUserAvatar(data.link)
-                .then(res => {
+                .then((res) => {
                     avatar.src = data.link;
                     renderLoading(false);
                     setUserAvatar.close();
@@ -79,7 +79,8 @@ function creatingCardInfo(data) {
         handleDeleteIcon: () => {
             if (MYID !== data.owner._id) {
                 card.hideRemoveBtn();
-            }},
+            };
+        },
         handleLikeCount: () => {
             if (data.likes.length > 0) {
                 data.likes.forEach(element => {
@@ -102,7 +103,7 @@ function creatingCardInfo(data) {
                     const count = result.likes.length;
                     card.deleteLike(count);
                 })
-            }
+            };
         }
     }, cardTemplateSelector);
     return card;
@@ -121,36 +122,41 @@ api.getInitialCards()
     .then(res => { 
         const cardSection = new Section({
             items: res,
-            renderer:(data) => {
-                const card = creatingCardInfo(data);
-                cardSection.addItem(card.generateCard());
-        },
+            renderer: (data) => {
+                const renderCard = creatingCardInfo(data);
+                cardSection.addItem(renderCard.generateCard());
+        }
         }, list);
         
         cardSection.renderItems();
 
         const addForm = new PopupWithForm({
-            handleSubmitForm: (data) => {
+             handleSubmitForm: (data) => {
+            
                 renderLoading(true);
+            
                 api.addCard(data)
-                    .then(res => {
-                        const newCard = creatingCardInfo(res);  
-                        renderLoading(false);   
+                    .then((result) => {
+                        const newCard = creatingCardInfo(result);
+                         
+                        renderLoading(false);
                         cardSection.addItem(newCard.generateCard());
                         addForm.close();
-                    }) 
+                        
+                    })
             },
             popupSelector: addCardModalWindow
         }); 
         addForm.setEventListeners();
-     // AddBtn events 
-    addBtn.addEventListener('click', () => {
-        addForm.open();
-    });
-    addCardCloseBtn.addEventListener('click', () => {
-        addForm.close();
-    });
-})
+        
+        
+        addBtn.addEventListener('click', () => {
+            addForm.open();
+        });
+        addCardCloseBtn.addEventListener('click', () => {
+            addForm.close();
+        }); 
+});
 
 
 const userInfo = new UserInfo({
