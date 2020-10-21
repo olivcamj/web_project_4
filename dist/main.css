@@ -8,7 +8,7 @@
 .footer{max-width:882px;height:18px}@media screen and (max-width:320px){.footer{max-width:282px;height:14px}}
 .elements__container{width:100%;margin-top:50px;margin-bottom:66px;list-style:none;padding-left:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(282px,1fr));gap:20px 18px}@media screen and (max-width:320px){.elements__container{max-width:100%;display:block;margin-top:36px;margin-bottom:48px}}
 .elements{max-width:882px;min-height:744px}@media screen and (max-width:900px){.elements{max-width:95%}}@media screen and (max-width:768px){.elements{min-height:628px}}@media screen and (max-width:320px){.elements{max-width:282px;max-height:2268px}}
-.card__description{display:flex;padding-bottom:29px;margin:13px auto;justify-content:space-between;max-width:246px;min-height:23px;cursor:pointer}
+.card__description{display:flex;margin:0 auto 29px;justify-content:space-between;max-width:246px;min-height:23px;cursor:pointer}
 .card__likeSction{display:flex;flex-direction:column}
 .card__removeBtn{width:18px;height:19px;position:relative;top:-264px;left:90%;right:15px;cursor:pointer;background-image:url(c4956c32989e66228de8d03a901d4be3.svg);background-size:100%;background-position:50%;background-repeat:no-repeat;background-color:transparent;outline:none;border:none}.card__removeBtn:hover{opacity:.6}@media screen and (max-width:320px){.card__removeBtn{top:-190px}}
 .card__heart-icon{min-width:20.76px;height:18.13px;padding:0;margin-top:6px;margin-left:12px;align-self:center;background-image:url(49570bcb1d637fdb38e5d51e248ddff6.svg);background-position:50%;background-size:100% 100%;border:none;background-color:#fff;outline:none}.card__heart-icon:hover{cursor:pointer;opacity:.6}
