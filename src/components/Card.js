@@ -1,7 +1,7 @@
 class Card {
     constructor({ data, handleCardClick, handleDeleteClick, handleDeleteIcon, handleLikeCount, handleLikeClick }, cardTemplateSelector) {
-        this._link = data.link;
         this._name = data.name;
+        this._link = data.link;
         this._id = data._id;
         this._likes = data.likes;
 
@@ -40,9 +40,12 @@ class Card {
         return this._card.querySelector('.card__heart-icon');
     }
 
+    _cardImage() {
+        return this._card.querySelector('.card__img');
+    }
+
+
     _addEventListeners() {
-        
-        const cardImg = this._card.querySelector('.card__img');
 
         this._cardHeartIcon().addEventListener('click', () => {
             this._handleLikeClick(this._id);
@@ -52,8 +55,8 @@ class Card {
             this._handleDeleteClick(this.id()); 
         });
 
-        cardImg.addEventListener('click', () => {
-            this._handleCardClick();
+        this._cardImage().addEventListener('click', () => {
+            this._handleCardClick({ link: this._link, name: this._text });
         });
     }
 
@@ -84,7 +87,7 @@ class Card {
         this._cardHeartIcon().classList.add('card__heart-icon_active');
         this._cardLikeCount().textContent = count;
     }
-    deleteLike(count){
+    deleteLike(count) {
         this._cardHeartIcon().classList.remove('card__heart-icon_active');
         this._cardLikeCount().textContent = count;
     }
@@ -94,7 +97,7 @@ class Card {
         this._card = this._getCardTemplate();
       
         this._card.querySelector('.card__text').textContent = this._name;
-        this._card.querySelector('.card__img').style.backgroundImage = `url(${this._link})`;
+        this._cardImage().style.backgroundImage = `url(${this._link})`;
         
         this._likeCount();
         
