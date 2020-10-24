@@ -52,7 +52,8 @@ const setUserAvatar = new PopupWithForm({
                     avatar.src = data.link;
                     renderLoading(false);
                     setUserAvatar.close();
-    })},
+                }).catch((err) => console.log(err))
+    },
     popupSelector: setUserAvatarModalWindow
 })
 
@@ -96,13 +97,13 @@ function creatingCardInfo(data) {
                 .then(result => {
                     const count = result.likes.length;
                     card.like(count);
-                })
+                }).catch((err) => console.log(err))
             } else {
                 api.changeLikeStatus(cardId, false)
                 .then(result => {
                     const count = result.likes.length;
                     card.deleteLike(count);
-                })
+                }).catch((err) => console.log(err))
             };
         }
     }, cardTemplateSelector);
@@ -142,8 +143,7 @@ api.getInitialCards()
                         renderLoading(false);
                         cardSection.addItem(newCard.generateCard());
                         addForm.close();
-                        
-                    })
+                    }).catch((err) => console.log(err))
             },
             popupSelector: addCardModalWindow
         }); 
@@ -156,7 +156,7 @@ api.getInitialCards()
         addCardCloseBtn.addEventListener('click', () => {
             addForm.close();
         }); 
-});
+}).catch((err) => console.log(err));
 
 
 const userInfo = new UserInfo({
@@ -170,7 +170,7 @@ api.getUserInfo()
         console.log('profile!!', res)
         userInfo.setUserInfo({ name: res.name, title: res.about })
         avatar.src = res.avatar;
-    })
+    }).catch((err) => console.log(err))
 
 
 const editForm = new PopupWithForm({
@@ -181,7 +181,7 @@ const editForm = new PopupWithForm({
             userInfo.setUserInfo(data)
             renderLoading(false)
             editForm.close()
-        }) 
+        }).catch((err) => console.log(err))
     },
     popupSelector: editProfileModalWindow
 });

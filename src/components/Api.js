@@ -9,7 +9,6 @@ class Api {
             headers: this._headers
         })
         .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-        .catch((err) => console.log(err))
     }
 
     getUserInfo() {
@@ -17,7 +16,6 @@ class Api {
             headers: this._headers
         })
         .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-        .catch((err) => console.log(err))
     }
 
     addCard({ link, name }) {
@@ -30,7 +28,6 @@ class Api {
             })
         })
         .then((res) => res.ok ? res.json() : Promise.reject('Error' + res.statusText))
-        .catch((err) => console.log(err))
     }
     
     deleteCard(cardId) {
@@ -39,7 +36,6 @@ class Api {
             method: "DELETE"
         })
         .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-        .catch((err) => console.log(err))
     }
 
     editUserInfo(data) {
@@ -52,7 +48,6 @@ class Api {
             })
         })
         .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-        .catch((err) => console.log(err))
     }
 
     changeLikeStatus(cardId, boolean) {
@@ -61,14 +56,11 @@ class Api {
             headers: this._headers,
             method: "PUT"}) 
             .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-            .catch(err => console.log(err))
-
         } else {
             return fetch(this._baseUrl + '/cards/likes/' + cardId, {
             headers: this._headers,
             method: "DELETE"})
             .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
-            .catch(err => console.log(err))
         }
         }
     setUserAvatar(avatar){
@@ -79,8 +71,7 @@ class Api {
                 avatar
             })
         })
-            .then((res) => {res.ok ? res.json() : Promise.reject('Error!' + res.statusText)})
-            .catch((err) => console.log(err))
+        .then((res) => {res.ok ? res.json() : Promise.reject('Error!' + res.statusText)})
     }
 }
 export default Api;
