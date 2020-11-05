@@ -58,5 +58,3 @@ export const list = document.querySelector('.elements__container');
 export const avatar = document.querySelector('.profile__avatar');
 export const addCardForm = document.querySelector('.form__type_add');
 export const editProfileForm = document.querySelector('.form__type_edit');
-
-export const MYID = '822f330ae567b560eb7c3848';
