@@ -48,8 +48,9 @@ const api = new Api({
     }
 });
 
-api.getInitialCards()
-    .then(res => { 
+api.getUserData()
+    .then(([userData, res]) => { 
+        const MYID = userData['_id'];
         
         const cardSection = new Section({
             items: res,
@@ -80,10 +81,6 @@ api.getInitialCards()
         addBtn.addEventListener('click', () => {
             addForm.open();
         });
-
-        addCardCloseBtn.addEventListener('click', () => {
-            addForm.close();
-        }); 
 
         function renderLoading(isLoading, modal) {
             if (isLoading) {
@@ -126,7 +123,7 @@ api.getInitialCards()
                         .then(() => {
                             card.deleteCard();
                             deleteForm.close();
-                        })    
+                        }).catch((err) => console.log(err))   
                     });
                     deleteForm.open();
                 },
@@ -167,15 +164,10 @@ api.getInitialCards()
             nameSelector: '.profile__heading',
             titleSelector: '.profile__occupation'
         });
-
-
-        api.getUserInfo()
-            .then(res => {
-                console.log('profile!!', res)
-                userInfo.setUserInfo({ name: res.name, title: res.about })
-                avatar.src = res.avatar;
-            }).catch((err) => console.log(err))
-
+        console.log('profile!!', userData)
+        //getUserInfo()
+        userInfo.setUserInfo({name: userData.name, title: userData.about}) //{ name: userData.name, title: userData.about})
+        avatar.src = userData.avatar;
 
         const editForm = new PopupWithForm({
             handleSubmitForm: (data) => {

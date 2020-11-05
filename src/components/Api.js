@@ -4,6 +4,10 @@ class Api {
         this._headers = headers;
     }
 
+    getUserData(){
+        return Promise.all([this.getUserInfo(), this.getInitialCards()])
+    }
+
     getInitialCards() {
         return fetch(this._baseUrl + '/cards', {
             headers: this._headers
