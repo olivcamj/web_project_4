@@ -1,4 +1,4 @@
-# Project 5: Around The U.S.
+# Around The U.S.
 
 ## Project Link
 
