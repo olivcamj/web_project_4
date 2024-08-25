@@ -1,6 +1,6 @@
 const presets = [
   [
-    "@babel/env",
+    "@babel/preset-env",
     {
       // preset you want to use
       targets: {
