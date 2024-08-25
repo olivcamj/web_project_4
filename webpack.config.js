@@ -1,38 +1,36 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // connect plugin 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+
 module.exports = {
+  mode: "development",
   devtool: "inline-source-map",
-  entry: { main: "./src/pages/index.js" },
+  entry:  "./src/pages/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
-    publicPath: "",
+    clean: true,
   },
-  mode: "development",
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist"),
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
     compress: true, // this will speed up file loading in development mode
     port: 8080,
     open: true, // site will open automatically in the browser after executing npm run dev
-    stats: "errors-only", //only output when errors happen
+    client: { logging: 'error' } //only output when errors happen
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        use: "babel-loader",
         exclude: "/node_modules/",
       },
       {
-        test: /\.(png|svg|jpg|gif|woff|woff2)$/,
-        loader: "file-loader",
-      },
-      {
         test: /\.html$/,
-        loader: "html-loader",
+        use: "html-loader",
       },
       {
         test: /\.css$/,
@@ -51,7 +49,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
-    new CleanWebpackPlugin(), // use plugin
     new MiniCssExtractPlugin(),
   ],
 };
