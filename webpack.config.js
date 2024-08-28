@@ -18,7 +18,9 @@ module.exports = {
     compress: true, // this will speed up file loading in development mode
     port: 8080,
     open: true, // site will open automatically in the browser after executing npm run dev
-    client: { logging: 'error' } //only output when errors happen
+    client: { logging: 'error' }, //only output when errors happen
+    liveReload: true,
+    hot: false,
   },
   module: {
     rules: [
