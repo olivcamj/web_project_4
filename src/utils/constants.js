@@ -25,7 +25,6 @@ export const initialCards = [
     }
   ];
 
-
 export const defaultConfig = {
     inputSelector: '.form__item',
     submitButtonSelector: '.form__btn',
@@ -33,7 +32,6 @@ export const defaultConfig = {
     inputErrorClass: 'form__item_type_error',
     errorClass: 'form__error'
   }; 
-
 
 // Wrappers
 export const editProfileModalWindow = document.querySelector('.modal_type_editProfile');
@@ -46,7 +44,6 @@ export const profileEditBtn = document.querySelector('.profile__editBtn');
 export const addBtn = document.querySelector('.profile__addBtn');
 export const setAvatarBtn = document.querySelector('.profile__avatar-overlay');
 export const addCardCloseBtn = addCardModalWindow.querySelector('.modal__closeBtn');
-
 // Form data 
 export const inputName = document.querySelector('.form__item_el_name');
 export const inputOccupation = document.querySelector('.form__item_el_occupation');

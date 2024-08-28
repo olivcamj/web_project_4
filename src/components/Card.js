@@ -44,7 +44,6 @@ class Card {
         return this._card.querySelector('.card__img');
     }
 
-
     _addEventListeners() {
 
         this._cardHeartIcon().addEventListener('click', () => {
