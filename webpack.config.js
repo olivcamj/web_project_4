@@ -49,6 +49,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      favicon: "./src/images/icons8-globe-48.ico",
     }),
     new MiniCssExtractPlugin(),
   ],
