@@ -8,13 +8,13 @@
 @import url('./__text/card__text.css');
 @import url('./__removeBtn/_type/card__removeBtn_type_hidden.css');
 
-
 .card {
   border-radius: 10px;
   box-shadow: 0 0 25px rgba(0, 0, 0, .15);
   background-color: #fff;
   height: 361px;
 }
+
 @media screen and (max-width: 320px) {
   .card {
     margin-bottom: 20px;

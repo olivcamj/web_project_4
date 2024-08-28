@@ -45,7 +45,6 @@ class Card {
     }
 
     _addEventListeners() {
-
         this._cardHeartIcon().addEventListener('click', () => {
             this._handleLikeClick(this._id);
         });
@@ -86,27 +85,24 @@ class Card {
         this._cardHeartIcon().classList.add('card__heart-icon_active');
         this._cardLikeCount().textContent = count;
     }
+
     deleteLike(count) {
         this._cardHeartIcon().classList.remove('card__heart-icon_active');
         this._cardLikeCount().textContent = count;
     }
 
     generateCard() {
-
         this._card = this._getCardTemplate();
       
         this._card.querySelector('.card__text').textContent = this._name;
         this._cardImage().style.backgroundImage = `url(${this._link})`;
         
         this._likeCount();
-        
         this._addEventListeners();
-        
         this._handleDeleteIcon();
         
         return this._card;
     };
-    
 }
 
 export default Card;
