@@ -162,9 +162,8 @@ api.getUserData()
             nameSelector: '.profile__heading',
             titleSelector: '.profile__occupation'
         });
-        console.log('profile!!', userData) //DELETE ME
-        //getUserInfo()
-        userInfo.setUserInfo({name: userData.name, title: userData.about}) //{ name: userData.name, title: userData.about})
+       
+        userInfo.setUserInfo({ name: userData.name, title: userData.about });
         avatar.src = userData.avatar;
 
         const editForm = new PopupWithForm({
