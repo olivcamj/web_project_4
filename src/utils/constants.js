@@ -55,3 +55,15 @@ export const list = document.querySelector('.elements__container');
 export const avatar = document.querySelector('.profile__avatar');
 export const addCardForm = document.querySelector('.form__type_add');
 export const editProfileForm = document.querySelector('.form__type_edit');
+
+export const getFilteredData = (data) => {
+    const ids = process.env.API_KEY_IDS.split(', ');
+    const safeCards = [];
+ 
+    for (let item of data) {
+        if (!ids.includes(item.owner._id)) {
+            safeCards.push(item);
+        }
+    };
+    return safeCards;
+}
