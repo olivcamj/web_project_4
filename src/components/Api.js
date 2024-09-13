@@ -1,3 +1,5 @@
+import { getFilteredData } from '../utils/constants.js';
+
 class Api {
     constructor({ baseUrl, headers }) {
         this._baseUrl = baseUrl;
@@ -12,7 +14,11 @@ class Api {
         return fetch(this._baseUrl + '/cards', {
             headers: this._headers
         })
-        .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
+            .then((res) => res.ok ? res.json() : Promise.reject('Error!' + res.statusText))
+            .then((data) => {
+                // Needed to modify this data to remove cards with non-us related images
+              return  getFilteredData(data)
+            });
     }
 
     getUserInfo() {
