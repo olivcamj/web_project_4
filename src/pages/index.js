@@ -41,7 +41,7 @@ deleteForm.setEventListeners();
 const api = new Api({
     baseUrl: "https://around.nomoreparties.co/v1/group-4",
     headers: {
-        authorization: "072f7e25-49ec-4ac7-aa51-bf0613ff728e",
+        authorization: process.env.API_KEY,
         "Content-Type": "application/json"
     }
 });
@@ -61,15 +61,18 @@ api.getUserData()
         cardSection.renderItems();
 
         const addForm = new PopupWithForm({
-             handleSubmitForm: (data) => {
-                renderLoading(true, addCardModalWindow);        
+            handleSubmitForm: (data) => {
+                renderLoading(true, addCardModalWindow);
                 api.addCard(data)
                     .then((result) => {
-                        const newCard = creatingCardInfo(result);                      
+                        const newCard = creatingCardInfo(result);
                         renderLoading(false, addCardModalWindow);
                         cardSection.addItem(newCard.generateCard());
                         addForm.close();
-                    }).catch((err) => console.log(err))
+                    }).catch((err) => {
+                        console.trace(err);
+                        return new Error({ err });
+                    })
             },
             popupSelector: addCardModalWindow
         }); 
@@ -159,7 +162,7 @@ api.getUserData()
             nameSelector: '.profile__heading',
             titleSelector: '.profile__occupation'
         });
-        console.log('profile!!', userData)
+        console.log('profile!!', userData) //DELETE ME
         //getUserInfo()
         userInfo.setUserInfo({name: userData.name, title: userData.about}) //{ name: userData.name, title: userData.about})
         avatar.src = userData.avatar;
@@ -195,4 +198,4 @@ api.getUserData()
             editForm.open();
         });
     })
-.catch((err) => console.log(err));
+.catch((err) => console.error(err));
